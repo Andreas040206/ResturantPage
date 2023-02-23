@@ -1,8 +1,9 @@
 import homePage from "./Pages/homePage";
 import bookingPage from "./Pages/bookingPage";
-import menuPage from "./Pages/MenuPage";
+import menuPage from "./Pages/menuPage";
 import removeChildNodes from "./Tools/RemoveAllChildren";
 import header from "./Pages/header";
+import footer from "./Pages/footer";
 
 function loadPage(currentPage) {
   removeChildNodes(document.body);
@@ -10,6 +11,7 @@ function loadPage(currentPage) {
   content.appendChild(header(currentPage));
   content.setAttribute("id", "content");
   content.appendChild(currentPageChecker(currentPage));
+  content.appendChild(footer);
 
   function currentPageChecker(theCurrentPage) {
     if (theCurrentPage === "homePage") {
@@ -20,8 +22,6 @@ function loadPage(currentPage) {
       return menuPage();
     }
   }
-
-  const cntent = document.createElement("div");
 
   document.body.appendChild(content);
 }
